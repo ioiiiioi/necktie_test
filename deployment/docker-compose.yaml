@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+  api:
+    container_name: necktie
+    build:
+      context: ../
+      dockerfile: ./deployment/Dockerfile
+    command: sh "./deployment/entrypoint.sh"
+    volumes:
+      - ../:/code
+    ports:
+      - "8000:8000"
+    restart: on-failure
